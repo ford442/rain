@@ -4,3 +4,9 @@ resources/public/js/cljs.js
 .lein-repl-history
 /resources/public/js/cljs.dev.js
 /resources/public/js/cljs.js.map
+
+# npm/node
+node_modules
+dist
+.DS_Store
+*.local
