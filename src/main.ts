@@ -41,6 +41,7 @@ function drawDrop(canvas: HTMLCanvasElement, drop: Drop, reflection: HTMLCanvasE
   // draw a circle on canvas with given reflection
   const { x, y, r } = drop;
   const ctx = canvas.getContext('2d')!;
+  const rSquared = r * r;
   
   ctx.save();
   ctx.beginPath();
@@ -49,7 +50,7 @@ function drawDrop(canvas: HTMLCanvasElement, drop: Drop, reflection: HTMLCanvasE
   ctx.clip();
   ctx.drawImage(
     reflection,
-    Math.max(0, x - r * r), Math.max(0, y - r * r), 4 * r * r, 4 * r * r,
+    Math.max(0, x - rSquared), Math.max(0, y - rSquared), 4 * rSquared, 4 * rSquared,
     x - r, y - r, 2 * r, 2 * r
   );
   ctx.restore();

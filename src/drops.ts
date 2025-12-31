@@ -54,9 +54,11 @@ export function mergeOverlapping(drops: Drop[], drop: Drop): Drop[] {
   // Returns a new collection with overlapping values merged
   const result: Drop[] = [];
   
-  for (const d of drops) {
+  for (let i = 0; i < drops.length; i++) {
+    const d = drops[i];
     if (overlapping(drop, d)) {
-      return [...result, mergeDrops(drop, d), ...drops.slice(drops.indexOf(d) + 1)];
+      // Found an overlap - merge and return the result with remaining drops
+      return [...result, mergeDrops(drop, d), ...drops.slice(i + 1)];
     }
     result.push(d);
   }

@@ -24,7 +24,7 @@ export class Channel<T> {
       return true;
     }
     
-    // If buffer is full and it's a dropping buffer, drop the oldest
+    // Dropping buffer: when full, remove the oldest value to make room for the new one
     if (this.maxSize !== Infinity) {
       this.buffer.shift();
       this.buffer.push(value);
